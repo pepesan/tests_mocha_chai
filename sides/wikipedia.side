@@ -1,0 +1,70 @@
+{
+  "id": "583b2e38-acc0-48ae-ac10-e59621c5f917",
+  "version": "2.0",
+  "name": "wikipedia",
+  "url": "https://es.wikipedia.org",
+  "tests": [{
+    "id": "1259e161-9b07-4848-9b3c-e330a03f9db8",
+    "name": "Buscador",
+    "commands": [{
+      "id": "77870324-1451-4ddb-acb9-dc5eae5a260f",
+      "comment": "",
+      "command": "open",
+      "target": "/wiki/Wikipedia:Portada",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "72db22e2-21ff-41aa-bb04-19354b7d109d",
+      "comment": "",
+      "command": "type",
+      "target": "id=searchInput",
+      "targets": [
+        ["id=searchInput", "id"],
+        ["name=search", "name"],
+        ["css=#searchInput", "css:finder"],
+        ["xpath=//input[@id='searchInput']", "xpath:attributes"],
+        ["xpath=//div[@id='simpleSearch']/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "Software"
+    }, {
+      "id": "fcedc1b8-378e-4aeb-b3b2-baf010f7d6e3",
+      "comment": "",
+      "command": "click",
+      "target": "id=searchButton",
+      "targets": [
+        ["id=searchButton", "id"],
+        ["name=go", "name"],
+        ["css=#searchButton", "css:finder"],
+        ["xpath=//input[@id='searchButton']", "xpath:attributes"],
+        ["xpath=//div[@id='simpleSearch']/input[3]", "xpath:idRelative"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ce2e6f0e-22d9-4ff5-afaf-62635360ae82",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=firstHeading",
+      "targets": [
+        ["id=firstHeading", "id"],
+        ["css=#firstHeading", "css:finder"],
+        ["xpath=//h1[@id='firstHeading']", "xpath:attributes"],
+        ["xpath=//div[@id='content']/h1", "xpath:idRelative"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Software')]", "xpath:innerText"]
+      ],
+      "value": "Software"
+    }]
+  }],
+  "suites": [{
+    "id": "d5e59f9f-8495-4849-aa15-e518c1763f34",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["1259e161-9b07-4848-9b3c-e330a03f9db8"]
+  }],
+  "urls": ["https://es.wikipedia.org/"],
+  "plugins": []
+}
