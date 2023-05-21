@@ -4,13 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "test:xunit-report": "mocha --reporter mocha-junit-reporter"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "chai": "^4.3.7",
     "mocha": "10.2.0",
+    "mocha-junit-reporter": "^2.2.0",
     "selenium-webdriver": "^4.9.2"
   }
 }
