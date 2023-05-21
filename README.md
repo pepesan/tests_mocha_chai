@@ -9,6 +9,9 @@ Repositorio de ejemplos de Mocha y Chai
 ## Ejecución de pruebas
 - npm run test
 
-## Ejecución de pruebas con informes
+## Ejecución de pruebas con informes XML
 - npm run test:xunit-report
 - dejará un fichero text-results.xml con los resultados
+## Ejecución de pruebas con informes HTML
+- npm run test:html-report
+- dejará una carpeta llamada mochaawesome-report con los resultados en html
