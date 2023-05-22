@@ -85,5 +85,6 @@ describe("Calcultator tests using ASSERT interface from CHAI module: ", function
             assert.property({ tea: { green: 'matcha' }}, 'tea', "no tiene propiedad tea");
         });
         // más información
+        // https://www.chaijs.com/api/assert/
     });
 });
