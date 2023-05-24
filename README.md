@@ -15,3 +15,7 @@ Repositorio de ejemplos de Mocha y Chai
 ## Ejecución de pruebas con informes HTML
 - npm run test:html-report
 - dejará una carpeta llamada mochaawesome-report con los resultados en html
+
+### Documentación extra
+
+O cómo manejar historias
