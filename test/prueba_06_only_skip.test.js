@@ -7,7 +7,7 @@ describe('Suite de prueba con pruebas seleccionadas y omitidas', () => {
         assert.equal(1 + 1, 2);
     });
     Cuidado con estos only porque marcan toda
-    la ejecición
+    la ejecución
     it.only('Prueba 2 (seleccionada)', () => {
         assert.equal(2 * 3, 6);
     });
