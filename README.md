@@ -8,6 +8,9 @@ Repositorio de ejemplos de Mocha y Chai
 - ó pnpm i
 ## Ejecución de pruebas
 - npm run test
+- mocha test/prueba_01.test.js
+- mocha --grep "Debe sumar números negativos correctamente" # sólo los test con ese patrón
+- mocha --grep "@fast" # sólo un tag específico
 
 ## Ejecución de pruebas con informes XML
 - npm run test:xunit-report
