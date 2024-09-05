@@ -1,4 +1,4 @@
-const assert = require('chai').assert;
+import { assert } from 'chai';
 
 describe('Prueba de funciones asincrónicas', () => {
     it('Debe resolver una promesa correctamente', async () => {

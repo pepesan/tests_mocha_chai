@@ -1,4 +1,4 @@
-const assert = require('chai').assert;
+import { assert } from 'chai';
 
 describe('Prueba con timeout personalizado', () => {
     it('Debe ejecutar en menos de 2 segundos', function (done) {

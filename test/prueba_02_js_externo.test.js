@@ -1,10 +1,13 @@
 // prueba.js
-const assert = require('chai').assert;
-const { sumar } = require('../app/funciones'); // Importar la función desde el archivo funciones.js
+import { assert } from 'chai';
+import {sumar} from "../app/funciones.js";
+ // Importar la función desde el archivo funciones.js
 
 describe('Prueba de la función sumar', () => {
     it('Debe sumar dos números correctamente', () => {
+        // Given + When
         const resultado = sumar(2, 3);
+        // Then
         assert.equal(resultado, 5);
     });
 

@@ -1,4 +1,4 @@
-const assert = require('chai').assert;
+import { assert } from 'chai';
 
 describe('Suite de prueba con configuración y limpieza por prueba', () => {
     let datos; // Variable que utilizaremos en las pruebas

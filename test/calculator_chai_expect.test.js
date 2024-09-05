@@ -1,5 +1,5 @@
-var expect = require("chai").expect;
-const { describe, it } = require('mocha');
+import { expect } from 'chai';
+import { describe, it } from 'mocha';
 var calculator = require("../app/calculator");
 // Supongamos que tienes una función 'calcularDescuento' que calcula el descuento en una compra
 function calcularDescuento(total, porcentajeDescuento) {
@@ -18,15 +18,15 @@ function esNumeroPar(numero) {
 describe("Calcultator tests using EXPECT interface from CHAI module: ", function () {
     describe("Check addTested Function: ", function () {
         it("Check the returned value using: expect(value).to.equal('value'): ", function () {
-            result = calculator.addTested("text");
+            let result = calculator.addTested("text");
             expect(result).to.equal("text tested");
         });
         it("Check the returned value using: expect(value).to.be.a('value')): ", function () {
-            result = calculator.addTested("text");
+            let result = calculator.addTested("text");
             expect(result).to.be.a('string');
         });
         it("Check the returned value using: expect(value).to.have.lengthOf(value): ", function () {
-            result = calculator.addTested("text");
+            let result = calculator.addTested("text");
             expect(result).to.have.lengthOf(11);
         });
     });
