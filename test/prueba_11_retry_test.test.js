@@ -6,7 +6,7 @@ describe('retries', function () {
     let vars
     beforeEach(async function() {
         //driver = await new Builder().forBrowser('chrome').build()
-        let driver = await new Builder().forBrowser(Browser.FIREFOX).build()
+        driver = await new Builder().forBrowser(Browser.CHROME).build()
         vars = {}
     })
     afterEach(async function() {

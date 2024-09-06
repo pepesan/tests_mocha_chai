@@ -1,5 +1,5 @@
-const {By} = require("selenium-webdriver");
-module.exports = {
+import {By} from "selenium-webdriver";
+export const paginaBusqueda ={
     "url": "https://cursosdedesarrollo.com/",
     "searchInput":(driver) =>{
         return driver.findElement(By.id("wp-block-search__input-1"))
