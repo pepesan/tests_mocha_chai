@@ -1,5 +1,5 @@
-exports.addTested = function(value) {
-  var result = value + " tested";
-  return result;
-};
+
+export function addTested(value) {
+  return value + " tested";
+}
 

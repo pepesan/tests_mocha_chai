@@ -1,33 +1,34 @@
 import { assert } from 'chai';
-var calculator = require("../app/calculator");
+import {addTested} from '../app/calculator.js';
+//var calculator = require("../app/calculator");
 describe("Calcultator tests using ASSERT interface from CHAI module: ", function () {
     describe("Check addTested Function: ", function () {
         it("Check the returned value using: assert.equal(value,'value'): ", function () {
-            let result = calculator.addTested("text");
+            let result = addTested("text");
             assert.equal(result, "text tested", "No es igual");
         });
         it("Check the returned value using: assert.notEqual(value,'value'): ", function () {
-            let result = calculator.addTested("text");
+            let result = addTested("text");
             assert.notEqual(false, "No es false", "Es igual");
         });
         it("Check the returned value using: strictEqual.equal(value,'value'): ", function () {
-            let result = calculator.addTested("text");
+            let result = addTested("text");
             assert.strictEqual(result, "text tested", "No es igual de manera estricta");
         });
         it("Check the returned value using: assert.typeOf(value,'value'): ", function () {
-            let result = calculator.addTested("text");
+            let result = addTested("text");
             assert.typeOf(result, "string", "No es de tipo string");
         });
         it("Check the returned value using: assert.lengthOf(value,'value'): ", function () {
-            let result = calculator.addTested("text");
+            let result = addTested("text");
             assert.lengthOf(result, 11, "No tiene la longitud correcta");
         });
         it("Assert isOk object is truthy", function () {
-            let result = calculator.addTested("text");
+            let result = addTested("text");
             assert.isOk(result, "no es truthy");
         });
         it("Assert isNotOk object is not truthy", function () {
-            let result = calculator.addTested("text");
+            let result = addTested("text");
             assert.isNotOk(false, "es truthy");
         });
         it("Assert isAbove strictly greater than (>) ", function () {

@@ -1,31 +1,17 @@
-var sinon = require('sinon');
+import { sumar } from '../app/math.js';
+import sinon from 'sinon';
+import { expect } from 'chai';
 
-var spy = sinon.spy();
+describe('Math module', function() {
+  it('should call sum function with correct arguments', function() {
+    // Crear el espía para la función sum
+    const spy = sinon.spy(sumar);
 
-//We can call a spy like a function
-spy('Hello', 'World');
+    // Llamar a la función
+    spy(3, 4);
 
-//Now we can get information about the call
-console.log(spy.firstCall.args); //output: ['Hello', 'World']
-
-
-var user = {
-  //...
-  setName: function(name){
-    this.name = name;
-  }
-}
-
-//Create a spy for the setName function
-var setNameSpy = sinon.spy(user, 'setName');
-
-//Now, any time we call the function, the spy logs information about it
-user.setName('Darth Vader');
-
-//Which we can see by looking at the spy object
-console.log(setNameSpy.callCount); //output: 1
-
-//Important final step - remove the spy
-setNameSpy.restore();
-
-
+    // Verificar que fue llamada con los argumentos correctos
+    expect(spy.calledOnce).to.be.true;
+    expect(spy.calledWith(3, 4)).to.be.true;
+  });
+});

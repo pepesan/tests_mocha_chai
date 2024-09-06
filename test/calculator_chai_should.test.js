@@ -1,6 +1,7 @@
-const should = require('chai').should();
-const { describe, it } = require('mocha');
-const calculator = require("../app/calculator");
+import * as chai from 'chai';
+chai.should();  // Esto habilita la interfaz "should"
+import { describe, it } from 'mocha';
+import {addTested} from '../app/calculator.js';
 
 // Supongamos que tienes una función 'calcularDescuento' que calcula el descuento en una compra
 function calcularDescuento(total, porcentajeDescuento) {
@@ -19,15 +20,15 @@ function esNumeroPar(numero) {
 describe("Calculator tests using SHOULD interface from CHAI module: ", function () {
     describe("Check addTested Function: ", function () {
         it("Check the returned value using: value.should.equal(value): ", function () {
-            let result = calculator.addTested("text");
+            let result = addTested("text");
             result.should.equal("text tested");
         });
         it("Check the returned value using: value.should.be.a('value'): ", function () {
-            result = calculator.addTested("text");
+            let result = addTested("text");
             result.should.be.a('string');
         });
         it("Check the returned value using: expect(value).to.have.lengthOf(value): ", function () {
-            result = calculator.addTested("text");
+            let result = addTested("text");
             result.should.have.lengthOf(11);
         });
     });

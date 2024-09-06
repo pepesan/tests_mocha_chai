@@ -5,11 +5,13 @@ describe('Suite de prueba con configuración y limpieza por prueba', () => {
 
     // Configuración antes de cada prueba
     beforeEach(() => {
+        console.log("beforeEach");
         datos = [1, 2, 3];
     });
 
     // Limpieza después de cada prueba
     afterEach(() => {
+        console.log("afterEach");
         datos = [];
     });
 

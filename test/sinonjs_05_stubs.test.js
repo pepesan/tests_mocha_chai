@@ -1,49 +1,40 @@
-const expect = require('chai').expect;
-const request = require('request');
-const sinon = require('sinon');
-const index = require('../app/index');
+import { expect } from 'chai';
+import sinon from 'sinon';
+import {getData} from '../app/index.js';
+import axios from 'axios';
 
-describe('with Stub: getPhotosByAlbumId', () => {
-    before(() => {
-        sinon.stub(request, 'get')
-            .yields(null, null, JSON.stringify([
-                {
-                    "albumId": 1,
-                    "id": 1,
-                    "title": "accusamus beatae ad facilis cum similique qui sunt",
-                    "url": "https://via.placeholder.com/600/92c952",
-                    "thumbnailUrl": "https://via.placeholder.com/150/92c952"
-                },
-                {
-                    "albumId": 1,
-                    "id": 2,
-                    "title": "reprehenderit est deserunt velit ipsam",
-                    "url": "https://via.placeholder.com/600/771796",
-                    "thumbnailUrl": "https://via.placeholder.com/150/771796"
-                },
-                {
-                    "albumId": 1,
-                    "id": 3,
-                    "title": "officia porro iure quia iusto qui ipsa ut modi",
-                    "url": "https://via.placeholder.com/600/24f355",
-                    "thumbnailUrl": "https://via.placeholder.com/150/24f355"
-                }
-            ]));
+describe('getData', () => {
+    let axiosGetStub;
+
+    beforeEach(() => {
+        // Crear un stub de axios.get
+        axiosGetStub = sinon.stub(axios, 'get');
     });
 
-    after(() => {
-        request.get.restore();
+    afterEach(() => {
+        // Restaurar axios.get después de cada prueba
+        axiosGetStub.restore();
     });
 
-    it('should getPhotosByAlbumId', (done) => {
-        index.getPhotosByAlbumId(1).then((photos) => {
-            expect(photos.length).to.equal(3);
-            photos.forEach(photo => {
-                expect(photo).to.have.property('id');
-                expect(photo).to.have.property('title');
-                expect(photo).to.have.property('url');
-            });
-            done();
-        });
+    it('debe devolver los datos correctamente cuando la solicitud tiene éxito', async () => {
+        // Definir la respuesta simulada
+        const mockData = { data: { id: 1, name: 'John Doe' } };
+
+        // Hacer que el stub devuelva la respuesta simulada
+        axiosGetStub.resolves(mockData);
+
+        const result = await getData();
+        expect(result).to.deep.equal(mockData.data);
+    });
+
+    it('debe lanzar un error cuando la solicitud falla', async () => {
+        // Simular un error en la solicitud
+        axiosGetStub.rejects(new Error('Network Error'));
+
+        try {
+            await getData();
+        } catch (error) {
+            expect(error.message).to.equal('Error fetching data');
+        }
     });
 });

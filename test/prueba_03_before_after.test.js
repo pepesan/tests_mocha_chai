@@ -5,11 +5,13 @@ describe('Suite de prueba con configuración y limpieza', () => {
 
     // Configuración antes de ejecutar las pruebas
     before(() => {
+        console.log("before");
         datos = [1, 2, 3];
     });
 
     // Limpieza después de ejecutar las pruebas
     after(() => {
+        console.log("after");
         datos = [];
     });
 

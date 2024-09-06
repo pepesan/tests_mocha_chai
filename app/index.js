@@ -1,29 +1,10 @@
-const request = require('request');
+import axios from 'axios';
 
-const getPhotosByAlbumId = (id) => {
-    const requestUrl = `https://jsonplaceholder.typicode.com/albums/${id}/photos?_limit=3`;
-    return new Promise((resolve, reject) => {
-        request.get(requestUrl, (err, res, body) => {
-            if (err) {
-                return reject(err);
-            }
-            resolve(JSON.parse(body));
-        });
-    });
-};
-
-
-module.exports = {
-    getPhotosByAlbumId,
-    getAlbumById: async function(id) {
-        const requestUrl = `https://jsonplaceholder.typicode.com/albums/${id}/photos?_limit=3`;
-        return new Promise((resolve, reject) => {
-            request.get(requestUrl, (err, res, body) => {
-                if (err) {
-                    return reject(err);
-                }
-                resolve(JSON.parse(body));
-            });
-        });
+export async function getData() {
+    try {
+        const response = await axios.get('https://api.example.com/data');
+        return response.data;
+    } catch (error) {
+        throw new Error('Error fetching data');
     }
-};
+}

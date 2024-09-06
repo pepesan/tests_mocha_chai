@@ -1,12 +1,12 @@
-const {Builder, By} = require("selenium-webdriver");
-const {assert} = require("chai");
-var expect = require("chai").expect;
+import {Browser, Builder, By} from "selenium-webdriver";
+import { assert } from 'chai';
 describe('retries', function () {
     this.timeout(30000)
     let driver
     let vars
     beforeEach(async function() {
-        driver = await new Builder().forBrowser('chrome').build()
+        //driver = await new Builder().forBrowser('chrome').build()
+        let driver = await new Builder().forBrowser(Browser.FIREFOX).build()
         vars = {}
     })
     afterEach(async function() {

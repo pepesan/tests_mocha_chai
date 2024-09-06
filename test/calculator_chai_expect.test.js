@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import { describe, it } from 'mocha';
-var calculator = require("../app/calculator");
+import {addTested} from '../app/calculator.js';
 // Supongamos que tienes una función 'calcularDescuento' que calcula el descuento en una compra
 function calcularDescuento(total, porcentajeDescuento) {
     if (total < 0 || porcentajeDescuento < 0 || porcentajeDescuento > 100) {
@@ -18,15 +18,15 @@ function esNumeroPar(numero) {
 describe("Calcultator tests using EXPECT interface from CHAI module: ", function () {
     describe("Check addTested Function: ", function () {
         it("Check the returned value using: expect(value).to.equal('value'): ", function () {
-            let result = calculator.addTested("text");
+            let result = addTested("text");
             expect(result).to.equal("text tested");
         });
         it("Check the returned value using: expect(value).to.be.a('value')): ", function () {
-            let result = calculator.addTested("text");
+            let result = addTested("text");
             expect(result).to.be.a('string');
         });
         it("Check the returned value using: expect(value).to.have.lengthOf(value): ", function () {
-            let result = calculator.addTested("text");
+            let result = addTested("text");
             expect(result).to.have.lengthOf(11);
         });
     });
