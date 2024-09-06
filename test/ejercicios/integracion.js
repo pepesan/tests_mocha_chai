@@ -1,5 +1,5 @@
-const sinon=require("sinon");
-const expect=require("chai").expect;
+import sinon from "sinon";
+import { expect } from 'chai';
 var myAPI = {
     add: (a, b, callback) => {
         return callback(a + b);
