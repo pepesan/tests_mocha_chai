@@ -9,6 +9,7 @@ describe('Buscador', function() {
   let vars
   beforeEach(async function() {
     driver = await new Builder().forBrowser('chrome').build()
+    await driver.manage().setTimeouts({ implicit: 20000 });
     vars = {}
   })
   afterEach(async function() {
@@ -17,7 +18,7 @@ describe('Buscador', function() {
   it('Buscador', async function() {
     // Test name: Buscador
     // Step # | name | target | value
-    // 1 | open | /wiki/Wikipedia:Portada |
+    // 1 | open | https://cursosdedesarrollo.com/ |
     await driver.get("https://cursosdedesarrollo.com/")
     // 2 | type | id=searchInput | Software
     await driver.findElement(By.id("wp-block-search__input-1")).sendKeys("nas")
